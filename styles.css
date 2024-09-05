@@ -1,0 +1,193 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #0A1128;
+    color: #ccc;
+    display: flex;
+    min-height: 100vh;
+}
+
+a {
+    text-decoration: none;
+    color: #ccc;
+}
+
+/* Unified Sidebar Styling */
+.sidebar {
+    width: 300px;
+    height: 100vh;
+    background-color: #00264d; /* Unified dark blue color */
+    color: white;
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.profile {
+    text-align: left;
+    margin-bottom: 40px;
+    margin-left: 20px;
+}
+
+.profile h1 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.profile h2 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    font-weight: 300;
+    color: #00adb5;
+}
+
+.profile p {
+    font-size: 0.9rem;
+    color: #ccc;
+    line-height: 1.4;
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+nav li {
+    margin: 15px 0;
+    position: relative;
+}
+
+nav li:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    height: 2px;
+    width: 20px;
+    background-color: #ccc;
+    transition: width 0.3s ease, background-color 0.3s ease;
+}
+
+.nav-link {
+    padding-left: 30px;
+    font-size: 1rem;
+    transition: color 0.3s ease, font-size 0.3s ease;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: white;
+    font-size: 1.2rem;
+}
+
+.nav-link.active + li:before,
+.nav-link:hover + li:before {
+    background-color: white;
+    width: 40px;
+}
+
+/* Social Icons Styling */
+.social-icons {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: flex;
+}
+
+.social-icon {
+    width: 35px; /* Ensures both LinkedIn and GitHub icons are the same size */
+    height: 35px; /* Makes sure both are square and uniform */
+    margin-right: 15px;
+    object-fit: contain; /* Ensure the icons fit perfectly in their containers */
+}
+
+/* Main Content Area */
+.content {
+    margin-left: 340px; /* Keep balanced spacing between left sidebar and content */
+    padding: 40px;
+    flex-grow: 1;
+}
+
+.section {
+    margin-bottom: 100px; /* More space between sections for smoother transitions */
+}
+
+/* Experience and Education Layout */
+.experience-item, .education-item {
+    display: flex;
+    margin-bottom: 60px; /* Larger margin for smoother transitions */
+}
+
+.duration {
+    color: #aaa;
+    font-size: 1rem;
+    width: 150px;
+    text-align: right;
+    padding-right: 20px;
+    flex-shrink: 0;
+}
+
+.role-company {
+    flex-grow: 1;
+}
+
+.role-company h3 {
+    color: white;
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 1rem;
+    color: #bbb;
+    margin-top: 10px;
+}
+
+/* Tags */
+.tags {
+    margin-top: 10px;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #00adb5;
+    color: #e5e5e5;
+    padding: 5px 10px;
+    border-radius: 20px;
+    margin-right: 10px;
+    font-size: 0.8rem;
+}
+
+/* Footer */
+footer {
+    display: none; /* Remove footer */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .experience-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
