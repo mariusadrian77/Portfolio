@@ -13,6 +13,13 @@ body {
     min-height: 100vh;
 }
 
+#lamp-effect {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+}
+
+
 a {
     text-decoration: none;
     color: #ccc;

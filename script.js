@@ -32,3 +32,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+const canvas = document.getElementById('lamp-effect');
+const ctx = canvas.getContext('2d');
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+let mouseX = 0;
+let mouseY = 0;
+
+const sidebar = document.querySelector('.sidebar');
+
+window.addEventListener('mousemove', (e) => {
+    if (sidebar.contains(e.target)) {
+        mouseX = e.clientX - sidebar.getBoundingClientRect().left;
+        mouseY = e.clientY - sidebar.getBoundingClientRect().top;
+    } else {
+        mouseX = e.clientX - (canvas.offsetLeft + canvas.clientLeft);
+        mouseY = e.clientY - (canvas.offsetTop + canvas.clientTop);
+    }
+
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 250);
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.2)');
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+});
+
+window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+});
+
