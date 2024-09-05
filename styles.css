@@ -79,7 +79,9 @@ nav li:before {
 }
 
 .about-text {
-    margin-left: px;
+    margin-left: 0px;
+    max-width: 600px;
+    padding: 20px;
 }
 
 .nav-link {
@@ -118,7 +120,7 @@ nav li:before {
 /* Main Content Area */
 .content {
     margin-left: 340px; /* Keep balanced spacing between left sidebar and content */
-    padding: 40px;
+    padding-left: 300px;
     flex-grow: 1;
 }
 
@@ -138,19 +140,27 @@ nav li:before {
     width: 150px;
     white-space: nowrap;
     margin-right: 20px;
-    text-align: right;
+    text-align: left;
     padding-right: 170px;
+    padding-left: 20px;
     flex-shrink: 0;
 }
 
 .role-company {
     flex-grow: 1;
+    
 }
 
 .role-company h3 {
     color: white;
     font-size: 1.4rem;
     margin-bottom: 10px;
+    margin-left: 20px;
+}
+
+.role-company p {
+    max-width: 600px;
+    padding: 20px;
 }
 
 p {
@@ -189,7 +199,7 @@ footer {
 
     .content {
         margin-left: 0;
-        padding: 20px;
+        padding: 150px;
     }
 
     .experience-header {
