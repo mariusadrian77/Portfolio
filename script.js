@@ -1,40 +1,36 @@
 const canvas = document.getElementById('lamp-effect');
 const ctx = canvas.getContext('2d');
 
-// Set canvas dimensions to cover the full viewport
+// Set canvas dimensions
 function updateCanvasSize() {
     canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight; // Ensure it covers the full viewport height
+    canvas.height = window.innerHeight;
 }
 
-// Initial canvas size setup
+// Function to create the lamp effect
+function drawLampEffect() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 400);
+    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.1)');
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+
+// Initial setup
 updateCanvasSize();
 
-let mouseX = 0;
-let mouseY = 0;
+let mouseX = 0, mouseY = 0;
 
+// Event listener for mouse movement
 window.addEventListener('mousemove', (e) => {
     mouseX = e.clientX;
     mouseY = e.clientY;
-
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Create a radial gradient with a larger radius and softer color stops
-    const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 400); // Increase the radius to 400
-    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.1)'); // Softer, more subtle opacity at the center
-    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');   // Fully transparent at the edges
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    drawLampEffect(); // Draw lamp effect on mouse move
 });
 
-window.addEventListener('scroll', () => {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
+// Event listener for scroll
+window.addEventListener('scroll', drawLampEffect);
 
-    const gradient = ctx.createRadialGradient(mouseX, mouseY, 0, mouseX, mouseY, 400); // Keep the larger radius
-    gradient.addColorStop(0, 'rgba(255, 255, 255, 0.1)'); // Softer opacity
-    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');   // Transparent edges
-
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-});
+// Handle window resizing
+window.addEventListener('resize', updateCanvasSize);

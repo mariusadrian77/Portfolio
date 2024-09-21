@@ -5,53 +5,52 @@
     box-sizing: border-box;
 }
 
+/* Body Styling */
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #00264d;
     color: #ccc;
     display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
-    height: 100vh;           /* Full viewport height */
+    justify-content: center;  /* Center horizontally */
+    align-items: center;      /* Center vertically */
+    height: 100vh;
 }
 
-main {
-    display: flex;            /* Ensure sidebar and content are aligned horizontally */
-    align-items: center;      /* Vertically center both the sidebar and content */
-}
-
+/* Lamp Effect Canvas */
 #lamp-effect {
-  position: fixed;
-  width: 100vw;
-  height: 100vh;
-  z-index: 9999;
-  pointer-events: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;             /* Full viewport width */
+    height: 100vh;            /* Full viewport height */
+    z-index: 9999;            /* Ensure canvas is always on top */
+    pointer-events: none;     /* Prevent interaction with canvas */
 }
 
-
+/* Links */
 a {
     text-decoration: none;
     color: #ccc;
 }
 
-/* Unified Sidebar Styling */
 .sidebar {
     width: 300px;
-    height: auto;             /* Remove fixed height */
     background-color: #00264d;
     color: white;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    justify-content: center;  /* Center sidebar content vertically */
-    margin-right: 40px;       /* Add space between sidebar and content */
-    position: relative;       /* Remove fixed position to allow it to move next to content */
+    justify-content: center;
+    position: fixed;         /* Fix the sidebar position */
+    top: 50%;                /* Center it vertically in the viewport */
+    transform: translateY(-50%); /* Vertically center it by translating 50% of its height */
+    left: 900px;                 /* Stick to the left side */
 }
 
 .profile {
     text-align: left;
     margin-bottom: 40px;
-    margin-left: 20px;
+    margin-left: 0px;
 }
 
 .profile h1 {
@@ -63,7 +62,7 @@ a {
     font-size: 1.5rem;
     margin-bottom: 20px;
     font-weight: 300;
-    color: #00adb5;
+    color: #00adb5;           /* Accent color for job title */
 }
 
 .profile p {
@@ -72,6 +71,7 @@ a {
     line-height: 1.4;
 }
 
+/* Navigation Menu */
 nav ul {
     list-style: none;
     padding-left: 0;
@@ -93,12 +93,6 @@ nav li:before {
     transition: width 0.3s ease, background-color 0.3s ease;
 }
 
-.about-text {
-    margin-left: 0px;
-    max-width: 600px;
-    padding: 20px;
-}
-
 .nav-link {
     padding-left: 30px;
     font-size: 1rem;
@@ -117,41 +111,42 @@ nav li:before {
     width: 40px;
 }
 
-/* Social Icons Styling */
+/* Social Icons */
 .social-icons {
-    position: flex;
+    display: flex;
     bottom: 20px;
     left: 20px;
-    display: flex;
 }
 
 .social-icon {
-    width: 35px; /* Ensures both LinkedIn and GitHub icons are the same size */
-    height: 35px; /* Makes sure both are square and uniform */
+    width: 35px;               /* Same size for both LinkedIn and GitHub */
+    height: 35px;              /* Square and uniform size */
     margin-right: 15px;
-    object-fit: contain; /* Ensure the icons fit perfectly in their containers */
+    object-fit: contain;       /* Ensure proper fitting */
 }
 
 /* Main Content Area */
 .content {
-    margin-left: 0;          /* Remove the margin to avoid pushing content to the right */
-    padding-left: 0;         /* No need for extra padding */
-    flex-grow: 1;            /* Allow the content to grow */
-    display: flex;           /* Use flexbox */
-    flex-direction: column;  /* Stack sections vertically */
-    justify-content: center; /* Center the content vertically */
-    align-items: center;     /* Center the content horizontally */
-    max-width: 800px;        /* Optional: Set a max width for readability */
-    width: 100%;
+    margin-left: 0;            /* Remove margin */
+    padding-left: 0;           /* No padding needed */
+    flex-grow: 1;              /* Expand content area */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* Center content vertically */
+    align-items: center;       /* Center content horizontally */
+    max-width: 800px;          /* Set a maximum width for readability */
+    width: 100%;               /* Ensure content is responsive */
 }
+
+/* Sections (About, Experience, Education) */
 .section {
-    margin-bottom: 100px; /* More space between sections for smoother transitions */
+    margin-bottom: 100px;      /* Larger margin between sections for spacing */
 }
 
 /* Experience and Education Layout */
 .experience-item, .education-item {
     display: flex;
-    margin-bottom: 60px; /* Larger margin for smoother transitions */
+    margin-bottom: 60px;       /* Larger margin for smooth transitions */
 }
 
 .duration {
@@ -163,12 +158,11 @@ nav li:before {
     text-align: left;
     padding-right: 170px;
     padding-left: 20px;
-    flex-shrink: 0;
+    flex-shrink: 0;            /* Prevent shrinking */
 }
 
 .role-company {
-    flex-grow: 1;
-    
+    flex-grow: 1;              /* Expand to fill available space */
 }
 
 .role-company h3 {
@@ -183,20 +177,14 @@ nav li:before {
     padding: 20px;
 }
 
-p {
-    font-size: 1rem;
-    color: #bbb;
-    margin-top: 10px;
-}
-
-/* Tags */
+/* Tags Styling */
 .tags {
     margin-top: 10px;
 }
 
 .tag {
     display: inline-block;
-    background-color: #00808080;
+    background-color: #00808080; /* Semi-transparent teal */
     color: #e5e5e5;
     padding: 5px 10px;
     border-radius: 20px;
@@ -204,22 +192,20 @@ p {
     font-size: 0.8rem;
 }
 
-/* Footer */
+/* Footer - Hidden by Default */
 footer {
-    display: none; /* Remove footer */
+    display: none; /* No footer currently used */
 }
 
-/* Responsive Design */
+/* Responsive Design for Mobile */
 @media (max-width: 768px) {
     .sidebar {
-        width: 100%;
+        width: 100%;          /* Sidebar takes full width on small screens */
         height: auto;
-        position: relative;
     }
 
     .content {
-        margin-left: 0;
-        padding: 150px;
+        padding: 150px;        /* Increase padding for content */
     }
 
     .experience-header {
